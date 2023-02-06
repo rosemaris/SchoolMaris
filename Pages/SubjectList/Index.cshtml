@@ -1,0 +1,61 @@
+﻿@page
+@model SchoolMaris.Pages.SubjectList.IndexModel
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h2 class="text-info">Subject List</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Add New Subject</a>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if (Model.Subjects.Count() > 0)
+            {
+                <table class="table table-striped border col justify-content-center">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Subjects.FirstOrDefault().Unit"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Subjects.FirstOrDefault().Code"></label>
+                        </th>
+                        <th>
+                            @*@Html.DisplayNameFor(m=>m.Subjects.FirstOrDefault().Description)*@
+                            <label asp-for="Subjects.FirstOrDefault().Description"></label>
+                        </th>
+                          <th>
+                            <label asp-for="Subjects.FirstOrDefault().ISBN"></label>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.Subjects)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m=>item.Unit)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m=>item.Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m=>item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m=>item.ISBN)
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <a class="btn btn-success btn-sm text-white">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No Available Subjects.</p>
+            }
+        </form>
+    </div>
+</div>

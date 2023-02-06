@@ -1,0 +1,56 @@
+﻿@page
+@model SchoolMaris.Pages.SubjectList.CreateModel
+
+<br />
+<h2 class="text-info">Add new Subject</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+         <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Subjects.Unit"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Subjects.Unit" class="form-control" />
+            </div>
+        </div>
+         <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Subjects.Code"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Subjects.Code" class="form-control" />
+            </div>
+        </div>
+         <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Subjects.Description"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Subjects.Description" class="form-control" />
+            </div>
+        </div>
+         <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Subjects.ISBN"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Subjects.ISBN" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input type="submit"  value="Create" class="btn btn-primary from-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
