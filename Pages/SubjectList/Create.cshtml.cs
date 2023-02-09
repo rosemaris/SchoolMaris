@@ -18,23 +18,33 @@ namespace SchoolMaris.Pages.SubjectList
             _db = db;
         }
         [BindProperty]
-        public Subject Subjects { get; set; }
+        public Subject Subject_ { get; set; }
         public void OnGet()
         {
             
         }
         public async Task<IActionResult> OnPost( )
-        {
+        { 
+
             if (ModelState.IsValid)
             {
-                await _db.Subject.AddAsync( Subjects );
-                await _db.SaveChangesAsync();
-                return RedirectToPage("Index");
+                var subjectWithSameName = _db.Subject
+                                                  .Where(s => s.Code == Subject_.Code)
+                                                  .ToList();
+                if(subjectWithSameName.Count==0)
+                {
+                    Subject_.CreatedDate = DateTime.Now;
+                    await _db.Subject.AddAsync(Subject_);
+                    await _db.SaveChangesAsync();
+                     return RedirectToPage("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError(" ", "Subject Code already exist");
+                    return Page();
+                }
             }
-            else
-            {
-                return Page();
-            }
+           return Page();
         }
     }
 }

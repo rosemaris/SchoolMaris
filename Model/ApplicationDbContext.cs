@@ -8,7 +8,9 @@ namespace SchoolMaris.Model
         {
 
         }
-
         public DbSet<Subject> Subject { get; set; }
+        public DbSet<Level> Level{ get; set; }
+        public DbSet<LevelSubject> LevelSubject { get; set; }
+        public DbSet<Section> Section { get; set; }
     }
 }

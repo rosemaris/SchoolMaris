@@ -18,10 +18,25 @@ namespace SchoolMaris.Pages.SubjectList
             _db = db;
         }
 
-        public IEnumerable<Subject> Subjects { get; set; }
+        public IEnumerable<Subject> Subject_ { get; set; }
         public async Task OnGet()
         {
-            Subjects = await _db.Subject.ToListAsync();
+            Subject_ = await _db.Subject.ToListAsync();
         }
+     
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var subject = await _db.Subject.FindAsync(id);
+            if (subject == null)
+            {
+                return NotFound();
+            }
+            
+            _db.Subject.Remove(subject);
+            await _db.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
+
+
     }
 }
