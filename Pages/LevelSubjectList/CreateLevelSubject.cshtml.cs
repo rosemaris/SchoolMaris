@@ -41,8 +41,7 @@ namespace SchoolMaris.Pages.LevelSubjectList
             if (ModelState.IsValid)
             {
                 var levelSubjectWithSameSubject = _db.LevelSubject
-                                                  .Where(s =>s.SubjectID == LevelSubject_.SubjectID && LevelSubject_.LevelSubjectID != s.LevelSubjectID)
-                                                  .Where(s => s.LevelID == LevelSubject_.LevelID && LevelSubject_.LevelSubjectID != s.LevelSubjectID)
+                                                  .Where(s =>s.SubjectID == LevelSubject_.SubjectID && s.LevelID == LevelSubject_.LevelID  && LevelSubject_.LevelSubjectID != s.LevelSubjectID)
                                                   .ToList();
                 if (levelSubjectWithSameSubject.Count == 0)
                 {
