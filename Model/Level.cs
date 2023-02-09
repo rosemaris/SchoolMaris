@@ -16,7 +16,7 @@ namespace SchoolMaris.Model
         public string Description { get; set; }
 
         [Display(Name = "Created Date")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd hh:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd hh:mm tt}")]
         public DateTime? CreatedDate { get; set; }
 
         [Display(Name = "Last Updated Date")]

@@ -10,8 +10,8 @@ using SchoolMaris.Model;
 namespace SchoolMaris.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230208071423_addLevelSubjecttoDB")]
-    partial class addLevelSubjecttoDB
+    [Migration("20230209081835_addLevelSubjecttoModel")]
+    partial class addLevelSubjecttoModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -387,3 +387,6 @@ D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\LevelSubjec
 D:\Maris\c# tutorial\SchoolMaris\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
 D:\Maris\c# tutorial\SchoolMaris\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
 D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\LevelSubjectList\EditLevelSubject.cshtml.g.cs
+D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\TeacherList\TeacherIndex.cshtml.g.cs
+D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\TeacherList\CreateTeacher.cshtml.g.cs
+D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\TeacherList\EditTeacher.cshtml.g.cs

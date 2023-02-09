@@ -13,13 +13,16 @@ namespace SchoolMaris.Model
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+
+        [Display(Name = "Date of Birth")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime? DateOfBirth { get; set; }
         public int Age { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
 
         [Display(Name = "Created Date")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd hh:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd hh:mm tt}")]
         public DateTime? CreatedDate { get; set; }
 
         [Display(Name = "Last Updated Date")]
