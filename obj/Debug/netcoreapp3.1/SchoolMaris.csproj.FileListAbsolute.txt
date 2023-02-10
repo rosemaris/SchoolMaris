@@ -791,3 +791,14 @@ C:\DEV\Maris\obj\Debug\netcoreapp3.1\SchoolMaris.csproj.CopyComplete
 C:\DEV\Maris\obj\Debug\netcoreapp3.1\SchoolMaris.dll
 C:\DEV\Maris\obj\Debug\netcoreapp3.1\SchoolMaris.pdb
 C:\DEV\Maris\obj\Debug\netcoreapp3.1\SchoolMaris.genruntimeconfig.cache
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.csproj.AssemblyReference.cache
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.GeneratedMSBuildEditorConfig.editorconfig
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.AssemblyInfoInputs.cache
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.AssemblyInfo.cs
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.csproj.CoreCompileInputs.cache
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.MvcApplicationPartsAssemblyInfo.cs
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.MvcApplicationPartsAssemblyInfo.cache
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.RazorAssemblyInfo.cache
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.RazorAssemblyInfo.cs
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.dll
+C:\DEV\Maris\SchoolMaris\obj\Debug\netcoreapp3.1\SchoolMaris.pdb
