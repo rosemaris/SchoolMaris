@@ -55,7 +55,7 @@ namespace SchoolMaris.Pages.LevelSubjectList
                 }
                 else
                 {
-                    ModelState.AddModelError(" ", "Subject already exist");
+                    ModelState.AddModelError(" ", "LevelSubject already exist");
                     return Page();
                 }
             }

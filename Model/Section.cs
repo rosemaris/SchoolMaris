@@ -16,10 +16,10 @@ namespace SchoolMaris.Model
 
         [Display(Name = "Created Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd hh:mm tt}")]
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         [Display(Name = "Last Updated Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
-        public DateTime? LastUpdatedDate { get; set; }
+        public DateTime LastUpdatedDate { get; set; }
     }
 }

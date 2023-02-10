@@ -15,18 +15,18 @@
             {
                 <table class="table table-striped border col justify-content-center">
                     <tr class="table-secondary">
-                        
+
                         <th class="col-1">
                             <label asp-for="Subject_.FirstOrDefault().Code"></label>
                         </th>
                         <th class="col-1">
                             <label asp-for="Subject_.FirstOrDefault().Unit"></label>
                         </th>
-                        <th class="col-2"> 
+                        <th class="col-2">
                             @*@Html.DisplayNameFor(m=>m.Subjects.FirstOrDefault().Description)*@
                             <label asp-for="Subject_.FirstOrDefault().Description"></label>
                         </th>
-                            <th class="col-2">
+                        <th class="col-2">
                             <label asp-for="Subject_.FirstOrDefault().CreatedDate"></label>
                         </th>
                         <th class="col-2">
@@ -35,58 +35,58 @@
                     </tr>
                     @foreach (var item in Model.Subject_)
                     {
-                      var tm = "#myModal" + item.SubjectID;
-                     var mid = "myModal" + item.SubjectID;
+                        var tm = "#myModal" + item.SubjectID;
+                        var mid = "myModal" + item.SubjectID;
                         <tr>
                             <td class="col-1">
-                                 <div style="text-transform:uppercase;">@Html.DisplayFor(m=>item.Code)</div>
+                                <div style="text-transform:uppercase;">@Html.DisplayFor(m=>item.Code)</div>
                             </td>
-                             <td class="col-1">
+                            <td class="col-1">
                                 @Html.DisplayFor(m=>item.Unit)
                             </td>
                             <td class="col-2">
-                                 @Html.DisplayFor(m=>item.Description)
-                             </td>
-                              <td class="col-2">
+                                @Html.DisplayFor(m=>item.Description)
+                            </td>
+                            <td class="col-2">
                                 @Html.DisplayFor(m=>item.CreatedDate)
                             </td>
-                              <td class="col-2">
+                            <td class="col-2">
                                 @Html.DisplayFor(m=>item.LastUpdatedDate)
                             </td>
-                            <td >
-                               @* <nav aria-label="breadcrumb">
+                            <td>
+                                @* <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                     <li class="breadcrumb-item" data-toggle="modal" data-target="@tm" ><a href="#">Delete</a></li>*@
-                                     <button type="button" class="btn btn-primary col-4" data-toggle="modal" data-target="@tm" >  Delete</button>
-                         @*AddedMODAL
-                             https://stackoverflow.com/questions/57389883/how-do-i-display-a-confirmation-message-with-trying-to-delete-a-record-in-asp-ne
-                         *@
-                         <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                           <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Subject Delete Confirmation</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                 <span aria-hidden="true">&times;</span>
-                                </button>
+                                <button type="button" class="btn btn-primary col-4" data-toggle="modal" data-target="@tm">  Delete</button>
+                                @*AddedMODAL
+                                    https://stackoverflow.com/questions/57389883/how-do-i-display-a-confirmation-message-with-trying-to-delete-a-record-in-asp-ne
+                                *@
+                                <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Subject Delete Confirmation</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure want to Delete this Subject?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button asp-page-handler="Delete" asp-route-Id="@item.SubjectID" id="deleteBtn" class="btn bg-danger  text-white mr-1">YES</button>
+                                                <button type="button" class="btn btn-success " data-dismiss="modal">NO</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            <div class="modal-body">
-                                Are you sure want to Delete this Subject?
-                            </div>
-                            <div class="modal-footer">
-                                <button asp-page-handler="Delete" asp-route-Id="@item.SubjectID" id="deleteBtn" class="btn bg-danger  text-white mr-1">YES</button>
-                                <button type="button" class="btn btn-success " data-dismiss="modal">NO</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                              @*       <li class="breadcrumb-item active" asp-page="Edit" asp-route-id="@item.SubjectID" aria-current="page">Edit</li>
+                                @*       <li class="breadcrumb-item active" asp-page="Edit" asp-route-id="@item.SubjectID" aria-current="page">Edit</li>
                                     </ol>
-                                </nav>*@
-                      
-                               <a asp-page="Edit" asp-route-id="@item.SubjectID" class="btn bg-success text-white mr-1 col-4">Edit</a>
-                            
+                                    </nav>*@
+
+                                <a asp-page="Edit" asp-route-id="@item.SubjectID" class="btn bg-success text-white mr-1 col-4">Edit</a>
+
                             </td>
                         </tr>
                     }

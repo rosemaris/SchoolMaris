@@ -390,3 +390,5 @@ D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\LevelSubjec
 D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\TeacherList\TeacherIndex.cshtml.g.cs
 D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\TeacherList\CreateTeacher.cshtml.g.cs
 D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\TeacherList\EditTeacher.cshtml.g.cs
+D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\SectionList\CreateSection.cshtml.g.cs
+D:\Maris\c# tutorial\SchoolMaris\obj\Debug\netcoreapp3.1\Razor\Pages\SectionList\EditSection.cshtml.g.cs

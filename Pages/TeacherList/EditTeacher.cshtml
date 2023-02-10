@@ -7,15 +7,15 @@
 <h2 class="text-info">Update  Teacher</h2>
 <br />
 
- <div asp-validation-summary="All" class="text-danger"></div>
+<div asp-validation-summary="All" class="text-danger"></div>
 
 <div class="border container" style="padding:30px;">
     <form method="post">
 
-           <input type="hidden" asp-for="Teacher_.TeacherID" />
+        <input type="hidden" asp-for="Teacher_.TeacherID" />
 
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-         
+
         <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Teacher_.FirstName"></label>
@@ -26,7 +26,7 @@
             <span asp-validation-for="Teacher_.FirstName" class="text-danger"></span>
         </div>
 
-         <div class="form-group row">
+        <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Teacher_.LastName"></label>
             </div>
@@ -36,8 +36,8 @@
             <span asp-validation-for="Teacher_.LastName" class="text-danger"></span>
         </div>
 
-        
-         <div class="form-group row">
+
+        <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Teacher_.DateOfBirth"></label>
             </div>
@@ -47,8 +47,8 @@
             <span asp-validation-for="Teacher_.DateOfBirth" class="text-danger"></span>
         </div>
 
-        
-         <div class="form-group row">
+
+        <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Teacher_.Age"></label>
             </div>
@@ -58,8 +58,8 @@
             <span asp-validation-for="Teacher_.Age" class="text-danger"></span>
         </div>
 
-        
-         <div class="form-group row">
+
+        <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Teacher_.Gender"></label>
             </div>
@@ -69,8 +69,8 @@
             <span asp-validation-for="Teacher_.Gender" class="text-danger"></span>
         </div>
 
-        
-         <div class="form-group row">
+
+        <div class="form-group row">
             <div class="col-4">
                 <label asp-for="Teacher_.Address"></label>
             </div>
@@ -83,7 +83,7 @@
 
         <div class="form-group row">
             <div class="col-3 offset-4">
-                <input id="savebtn" type="submit"  value="Update" class="btn btn-primary form-control" >
+                <input id="savebtn" type="submit" value="Update" class="btn btn-primary form-control">
             </div>
             <div class="col-3">
                 <a asp-page="TeacherIndex" class="btn btn-success form-control">Back to List</a>
@@ -95,6 +95,6 @@
 
 @section Scripts
 {
-    <partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }
 

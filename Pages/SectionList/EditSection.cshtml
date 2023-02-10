@@ -1,8 +1,9 @@
 ﻿@page
-@model SchoolMaris.Pages.LevelList.EditLevelModel
+@model SchoolMaris.Pages.SectionList.EditSectionModel
+
 
 <br />
-<h2 class="text-info">Update new Level</h2>
+<h2 class="text-info">Update new Section</h2>
 <br />
 
 <div asp-validation-summary="All" class="text-danger"></div>
@@ -10,26 +11,26 @@
 <div class="border container" style="padding:30px;">
     <form method="post">
 
-        <input type="hidden" asp-for="Level_.LevelID" />
+        <input type="hidden" asp-for="Section_.SectionID" />
 
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         <div class="form-group row">
             <div class="col-4">
-                <label asp-for="Level_.Code"></label>
+                <label asp-for="Section_.Code"></label>
             </div>
             <div class="col-6">
-                <input asp-for="Level_.Code" class="form-control" />
+                <input asp-for="Section_.Code" class="form-control" />
             </div>
-            <span asp-validation-for="Level_.Code" class="text-danger"></span>
+            <span asp-validation-for="Section_.Code" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-4">
-                <label asp-for="Level_.Description"></label>
+                <label asp-for="Section_.Description"></label>
             </div>
             <div class="col-6">
-                <input asp-for="Level_.Description" class="form-control" />
+                <input asp-for="Section_.Description" class="form-control" />
             </div>
-            <span asp-validation-for="Level_.Description" class="text-danger"></span>
+            <span asp-validation-for="Section_.Description" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-3 offset-4">
@@ -37,7 +38,7 @@
                 <input type="submit" value="Update" class="btn btn-primary form-control">
             </div>
             <div class="col-3">
-                <a asp-page="LevelIndex" class="btn btn-success form-control">Back to List</a>
+                <a asp-page="SectionIndex" class="btn btn-success form-control">Back to List</a>
             </div>
         </div>
     </form>
@@ -47,4 +48,3 @@
 {
 <partial name="_ValidationScriptsPartial" />
 }
-

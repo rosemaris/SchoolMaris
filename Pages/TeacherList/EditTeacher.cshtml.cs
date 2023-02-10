@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SchoolMaris.Model;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SchoolMaris.Pages.TeacherList
@@ -25,6 +26,11 @@ namespace SchoolMaris.Pages.TeacherList
         {
             if (ModelState.IsValid)
             {
+                var TeacherWithSameName = _db.Teacher
+                                                      .Where(s => Teacher_.TeacherID != s.TeacherID)
+                                                      .ToList();
+                if (TeacherWithSameName.Count == 0)
+                {
                     var TeacherFromDb = await _db.Teacher.FindAsync(Teacher_.TeacherID);
                     TeacherFromDb.FirstName = Teacher_.FirstName;
                     TeacherFromDb.LastName = Teacher_.LastName;
@@ -35,6 +41,12 @@ namespace SchoolMaris.Pages.TeacherList
                 TeacherFromDb.LastUpdatedDate = DateTime.Now;
                     await _db.SaveChangesAsync();
                     return RedirectToPage("TeacherIndex");
+                }
+                else
+                {
+                    ModelState.AddModelError(" ", "Teacher Name already exist");
+                    return Page();
+                }
             }
             return Page();
         }
