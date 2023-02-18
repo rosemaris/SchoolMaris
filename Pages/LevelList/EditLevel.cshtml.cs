@@ -11,6 +11,7 @@ namespace SchoolMaris.Pages.LevelList
     public class EditLevelModel : PageModel
     {
         private ApplicationDbContext _db;
+
         [BindProperty]
         public Level Level_ { get; set; }
         public EditLevelModel(ApplicationDbContext db)

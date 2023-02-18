@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolMaris.Model;
 
 namespace SchoolMaris.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230218052344_AddedLevelSectionToModel")]
+    partial class AddedLevelSectionToModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,13 +199,13 @@ namespace SchoolMaris.Migrations
             modelBuilder.Entity("SchoolMaris.Model.LevelSection", b =>
                 {
                     b.HasOne("SchoolMaris.Model.Level", "Level")
-                        .WithMany("LevelSections")
+                        .WithMany()
                         .HasForeignKey("LevelID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolMaris.Model.Section", "Section")
-                        .WithMany("LevelSections")
+                        .WithMany()
                         .HasForeignKey("SectionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

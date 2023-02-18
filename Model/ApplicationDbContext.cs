@@ -13,5 +13,6 @@ namespace SchoolMaris.Model
         public DbSet<LevelSubject> LevelSubject { get; set; }
         public DbSet<Teacher> Teacher { get; set; }
         public DbSet<Section> Section { get; set; }
+        public DbSet<LevelSection> LevelSection { get; set; }
     }
 }

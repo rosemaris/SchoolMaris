@@ -24,5 +24,7 @@ namespace SchoolMaris.Model
         public DateTime LastUpdatedDate { get; set; }
 
         public List<LevelSubject> LevelSubjects { get; set; }
+        
+        public List<LevelSection> LevelSections { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace SchoolMaris.Pages.LevelList
     public class CreateLevelModel : PageModel
     {
         private readonly ApplicationDbContext _db;
+
         [BindProperty]
         public Level Level_ { get; set; }
 

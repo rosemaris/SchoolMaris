@@ -7,16 +7,16 @@ using System.Web.Mvc;
 
 namespace SchoolMaris.Model
 {
-    public class LevelSubject
+    public class LevelSection
     {
         [Key]
-        public int LevelSubjectID { get; set; }
+        public int LevelSectionID { get; set; }
 
         public int LevelID { get; set; }
         public Level Level { get; set; }
 
-        public int SubjectID { get; set; }
-        public Subject Subject { get; set; }
+        public int SectionID { get; set; }
+        public Section Section { get; set; }
 
 
         [Display(Name = "Created Date")]
@@ -29,7 +29,7 @@ namespace SchoolMaris.Model
 
 
         [NotMapped]
-        public IEnumerable<SelectListItem> SubjectLists { get; set; } = new List<SelectListItem>();
+        public IEnumerable<SelectListItem> SectionLists { get; set; } = new List<SelectListItem>();
         [NotMapped]
         public IEnumerable<SelectListItem> LevelLists { get; set; } = new List<SelectListItem>();
     }
