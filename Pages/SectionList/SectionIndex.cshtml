@@ -11,6 +11,16 @@
     </div>
 
     <div class="col-12 border p-3 mt-3">
+        <form>
+            <p>
+                <select asp-for="SectionCode" asp-items="Model.Codes">
+                    <option value="">All</option>
+                </select>
+                Section: <input type="text" asp-for="SecSearchString" />
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+
         <form method="post">
             @if (Model.Section_.Count() > 0)
             {
@@ -38,7 +48,7 @@
                                 <div style="text-transform:uppercase;"> @Html.DisplayFor(m=>item.Code)</div>
                             </td>
                             <td class="col-2">
-                                @Html.DisplayFor(m=>item.Description)
+                                <div style="text-transform:uppercase;">@Html.DisplayFor(m=>item.Description)</div>
                             </td>
                             <td class="col-2">
                                 @Html.DisplayFor(m=>item.CreatedDate)
@@ -69,6 +79,7 @@
                                     </div>
                                 </div>
                                 <a asp-page="EditSection" asp-route-id="@item.SectionID" class="btn bg-success text-white mr-1 col-4">Edit</a>
+
                             </td>
                         </tr>
                     }
@@ -76,7 +87,7 @@
             }
             else
             {
-                <p>No Available Section.</p>
+                <p>No Available Level.</p>
             }
         </form>
     </div>

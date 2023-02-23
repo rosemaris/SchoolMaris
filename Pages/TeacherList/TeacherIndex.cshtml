@@ -10,6 +10,17 @@
     </div>
 
     <div class="col-12 border p-3 mt-3">
+        <form>
+            <p>
+                <select asp-for="TCode" asp-items="Model.Codes">
+                    <option value="">All</option>
+                </select>
+                Teachers LastName: <input type="text" asp-for="TSearchString" />
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+        
+        
         <form method="post">
             @if (Model.Teacher_.Count() > 0)
             {

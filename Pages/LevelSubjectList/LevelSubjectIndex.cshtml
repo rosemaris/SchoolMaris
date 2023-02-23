@@ -10,6 +10,17 @@
     </div>
 
     <div class="col-12 border p-3 mt-3">
+        <form>
+            <p>
+                <select asp-for="LSubCode" asp-items="Model.Codes">
+                    <option value="">All</option>
+                </select>
+                LevelSubject: <input type="text" asp-for="LSubSearchString" />
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+        
+        
         <form method="post">
             @if (Model.LevelSubject_.Count() > 0)
             {
@@ -66,7 +77,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                Are you sure want to Delete this Subject?
+                                                Are you sure want to Delete this LevelSubject?
                                             </div>
                                             <div class="modal-footer">
                                                 <button asp-page-handler="Delete" asp-route-Id="@item.LevelSubjectID" id="deleteBtn" class="btn bg-danger  text-white mr-1">YES</button>

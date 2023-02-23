@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SchoolMaris.Model;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SchoolMaris.Pages.SectionList
@@ -17,11 +19,34 @@ namespace SchoolMaris.Pages.SectionList
             _db = db;
         }
 
-        public IEnumerable<Section> Section_ { get; set; }
-        public async Task OnGet()
+
+        public IList<Section> Section_ { get; set; } = default!;
+
+        [BindProperty(SupportsGet = true)]
+        public string? SecSearchString { get; set; }
+        public SelectList? Codes { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string? SectionCode { get; set; }
+        public async Task OnGetAsync()
         {
-            Section_ = await _db.Section.ToListAsync();
+            IQueryable<string> codeQuery = from m in _db.Section
+                                           orderby m.Code
+                                           select m.Code;
+            var section = from m in _db.Section
+                        select m;
+            if (!string.IsNullOrEmpty(SecSearchString))
+            {
+                section = section.Where(s => s.Description.Contains(SecSearchString));
+            }
+
+            if (!string.IsNullOrEmpty(SectionCode))
+            {
+                section = section.Where(x => x.Code == SectionCode);
+            }
+            Codes = new SelectList(await codeQuery.Distinct().ToListAsync());
+            Section_ = await section.ToListAsync();
         }
+
 
         public async Task<IActionResult> OnPostDelete(int id)
         {

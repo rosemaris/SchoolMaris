@@ -27,6 +27,7 @@ namespace SchoolMaris
         {
 
             services.AddDbContext<Model.ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
@@ -53,6 +54,7 @@ namespace SchoolMaris
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }

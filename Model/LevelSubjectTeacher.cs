@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System;
-using System.Web.Mvc;
 
 namespace SchoolMaris.Model
 {
-    public class LevelSubject
+    public class LevelSubjectTeacher
     {
         [Key]
+        public int LevelSubjectTeacherID { get; set; }
+
         public int LevelSubjectID { get; set; }
+        public LevelSubject LevelSubject { get; set; }
 
-        public int LevelID { get; set; }
-        public Level Level { get; set; }
-
-        public int SubjectID { get; set; }
-        public Subject Subject { get; set; }
+        public int TeacherID { get; set; }
+        public Teacher Teacher { get; set; }
 
 
         [Display(Name = "Created Date")]
@@ -27,12 +26,11 @@ namespace SchoolMaris.Model
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         public DateTime LastUpdatedDate { get; set; }
 
-        public List<LevelSubjectTeacher> LevelSubjectTeachers { get; set; }
-
-
+        /*
         [NotMapped]
-        public IEnumerable<SelectListItem> SubjectLists { get; set; } = new List<SelectListItem>();
+        public IEnumerable<SelectListItem> LevelSubjectLists { get; set; } = new List<SelectListItem>();
         [NotMapped]
-        public IEnumerable<SelectListItem> LevelLists { get; set; } = new List<SelectListItem>();
+        public IEnumerable<SelectListItem> TeacherLists { get; set; } = new List<SelectListItem>();
+        */
     }
 }

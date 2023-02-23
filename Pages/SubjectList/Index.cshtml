@@ -8,8 +8,17 @@
     <div class="col-3">
         <a asp-page="Create" class="btn btn-info form-control text-white">Add New Subject</a>
     </div>
-
     <div class="col-12 border p-3 mt-3">
+        <form>
+            <p>
+                <select asp-for="SubjectCode"  asp-items="Model.Codes">
+                    <option value="">All</option>
+                </select>
+                Subject: <input type="text" asp-for="SearchString" />
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+
         <form method="post">
             @if (Model.Subject_.Count() > 0)
             {
@@ -45,7 +54,7 @@
                                 @Html.DisplayFor(m=>item.Unit)
                             </td>
                             <td class="col-2">
-                                @Html.DisplayFor(m=>item.Description)
+                                <div style="text-transform:uppercase;">@Html.DisplayFor(m=>item.Description)</div>
                             </td>
                             <td class="col-2">
                                 @Html.DisplayFor(m=>item.CreatedDate)

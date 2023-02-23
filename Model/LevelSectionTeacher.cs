@@ -7,16 +7,16 @@ using System.Web.Mvc;
 
 namespace SchoolMaris.Model
 {
-    public class LevelSubject
+    public class LevelSectionTeacher
     {
         [Key]
-        public int LevelSubjectID { get; set; }
+        public int LevelSectionTeacherID { get; set; }
 
-        public int LevelID { get; set; }
-        public Level Level { get; set; }
+        public int LevelSectionID { get; set; }
+        public LevelSection LevelSection { get; set; }
 
-        public int SubjectID { get; set; }
-        public Subject Subject { get; set; }
+        public int TeacherID { get; set; }
+        public Teacher Teacher { get; set; }
 
 
         [Display(Name = "Created Date")]
@@ -27,12 +27,11 @@ namespace SchoolMaris.Model
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         public DateTime LastUpdatedDate { get; set; }
 
-        public List<LevelSubjectTeacher> LevelSubjectTeachers { get; set; }
-
-
+        
         [NotMapped]
-        public IEnumerable<SelectListItem> SubjectLists { get; set; } = new List<SelectListItem>();
+        public IEnumerable<SelectListItem> LevelSectionLists { get; set; } = new List<SelectListItem>();
         [NotMapped]
-        public IEnumerable<SelectListItem> LevelLists { get; set; } = new List<SelectListItem>();
+        public IEnumerable<SelectListItem> TeacherLists { get; set; } = new List<SelectListItem>();
+        
     }
 }

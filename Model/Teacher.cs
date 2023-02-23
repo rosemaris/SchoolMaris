@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SchoolMaris.Model
@@ -29,5 +30,8 @@ namespace SchoolMaris.Model
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         public DateTime LastUpdatedDate { get; set; }
 
+
+        public List<LevelSubjectTeacher> LevelSubjectTeachers { get; set; }
+        public List<LevelSectionTeacher> LevelSectionTeachers { get; set; }
     }
 }
