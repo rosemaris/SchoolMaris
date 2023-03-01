@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SchoolMaris.Model;
@@ -27,7 +28,9 @@ namespace SchoolMaris.Pages.TeacherList
             if (ModelState.IsValid)
             {
                 var TeacherWithSameName = _db.Teacher
-                                                      .Where(s => Teacher_.TeacherID != s.TeacherID)
+                                                      .Where(s =>s.FirstName == Teacher_.FirstName && s.LastName == Teacher_.LastName &&
+                                                      s.DateOfBirth == Teacher_.DateOfBirth && s.Age == Teacher_.Age && s.Gender == Teacher_.Gender &&
+                                                      s.Address == Teacher_.Address && s.TeacherID !=Teacher_.TeacherID  )
                                                       .ToList();
                 if (TeacherWithSameName.Count == 0)
                 {
@@ -35,10 +38,10 @@ namespace SchoolMaris.Pages.TeacherList
                     TeacherFromDb.FirstName = Teacher_.FirstName;
                     TeacherFromDb.LastName = Teacher_.LastName;
                     TeacherFromDb.DateOfBirth = Teacher_.DateOfBirth;
-                TeacherFromDb.Age = Teacher_.Age;
-                TeacherFromDb.Gender = Teacher_.Gender;
-                TeacherFromDb.Address = Teacher_.Address;
-                TeacherFromDb.LastUpdatedDate = DateTime.Now;
+                    TeacherFromDb.Age = Teacher_.Age;
+                    TeacherFromDb.Gender = Teacher_.Gender;
+                    TeacherFromDb.Address = Teacher_.Address;
+                    TeacherFromDb.LastUpdatedDate = DateTime.Now;
                     await _db.SaveChangesAsync();
                     return RedirectToPage("TeacherIndex");
                 }

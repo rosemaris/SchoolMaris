@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System;
+using System.Web.Mvc;
 
 namespace SchoolMaris.Model
 {
@@ -26,11 +27,11 @@ namespace SchoolMaris.Model
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         public DateTime LastUpdatedDate { get; set; }
 
-        /*
+        
         [NotMapped]
         public IEnumerable<SelectListItem> LevelSubjectLists { get; set; } = new List<SelectListItem>();
         [NotMapped]
         public IEnumerable<SelectListItem> TeacherLists { get; set; } = new List<SelectListItem>();
-        */
+        
     }
 }

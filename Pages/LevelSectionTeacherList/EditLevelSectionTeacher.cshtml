@@ -1,9 +1,9 @@
 ﻿@page
-@model SchoolMaris.Pages.LevelSectionTeacherList.CreateLevelSectionTeacherModel
+@model SchoolMaris.Pages.LevelSectionTeacherList.EditLevelSectionTeacherModel
 
 
 <br />
-<h2 class="text-info">Add new Teaching Advisory</h2>
+<h2 class="text-info">Update Teaching Advisory</h2>
 <br />
 
 <div asp-validation-summary="All" class="text-danger"></div>
@@ -11,6 +11,9 @@
 
 <div class="border container" style="padding:30px;">
     <form method="post">
+
+        <input type="hidden" asp-for="LevelSectionTeacher_.LevelSectionTeacherID" />
+
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
         <div class="form-group row">
@@ -39,7 +42,7 @@
 
         <div class="form-group row">
             <div class="col-3 offset-4">
-                <input id="savebtn" type="submit" value="Save" class="btn btn-primary form-control">
+                <input id="savebtn" type="submit" value="Update" class="btn btn-primary form-control">
             </div>
             <div class="col-3">
                 <a asp-page="LevelSectionTeacherIndex" class="btn btn-success form-control">Back to List</a>
@@ -52,3 +55,4 @@
     {
     <partial name="_ValidationScriptsPartial" />
 }
+

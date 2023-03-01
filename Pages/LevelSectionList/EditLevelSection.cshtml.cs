@@ -41,8 +41,7 @@ namespace SchoolMaris.Pages.LevelSectionList
             if (ModelState.IsValid)
             {
                 var levelwithSameSection = _db.LevelSection
-                                                   .Where(s => s.SectionID == LevelSection_.SectionID && LevelSection_.LevelSectionID != s.LevelSectionID)
-                                                   .Where(s => s.LevelID == LevelSection_.LevelID && LevelSection_.LevelSectionID != s.LevelSectionID)
+                                                   .Where(s => s.SectionID == LevelSection_.SectionID && s.LevelID == LevelSection_.LevelID && LevelSection_.LevelSectionID != s.LevelSectionID)
                                                    .ToList();
                 if (levelwithSameSection.Count == 0)
                 {

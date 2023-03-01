@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SchoolMaris.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,7 +14,6 @@ namespace SchoolMaris.Pages.TeacherList
     public class TeacherIndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-
         public TeacherIndexModel(ApplicationDbContext db)
         {
             _db = db;
@@ -23,6 +24,7 @@ namespace SchoolMaris.Pages.TeacherList
         [BindProperty(SupportsGet = true)]
         public string? TSearchString { get; set; }
         public SelectList? Codes { get; set; }
+
         [BindProperty(SupportsGet = true)]
         public string? TCode { get; set; }
         public async Task OnGetAsync()
@@ -44,6 +46,7 @@ namespace SchoolMaris.Pages.TeacherList
             Codes = new SelectList(await codeQuery.Distinct().ToListAsync());
             Teacher_ = await teacher.ToListAsync();
         }
+        
 
         public async Task<IActionResult> OnPostDelete(int id)
         {

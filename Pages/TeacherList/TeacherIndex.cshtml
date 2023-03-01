@@ -27,6 +27,9 @@
                 <table class="table table-striped border col justify-content-center">
                     <tr class="table-secondary">
                         <th class="col-1">
+                            <label>Profile Picture</label>
+                        </th>
+                        <th class="col-1">
                             <label asp-for="Teacher_.FirstOrDefault().FirstName"></label>
                         </th>
                         <th class="col-1">
@@ -56,6 +59,9 @@
                         var tm = "#myModal" + item.TeacherID;
                         var mid = "myModal" + item.TeacherID;
                         <tr>
+                            <td class="col-1">
+              
+                            </td>
                             <td class="col-1">
                                 <div style="text-transform:uppercase;"> @Html.DisplayFor(m=>item.FirstName)</div>
                             </td>

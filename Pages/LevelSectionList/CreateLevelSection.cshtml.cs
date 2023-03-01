@@ -29,10 +29,10 @@ namespace SchoolMaris.Pages.LevelSectionList
             }).ToList();
 
             LevelSection_.LevelLists = _db.Level.ToList()
-           .Select(subject => new SelectListItem
+           .Select(level => new SelectListItem
            {
-               Value = subject.LevelID.ToString(),
-               Text = subject.Code.ToString()
+               Value = level.LevelID.ToString(),
+               Text = level.Code.ToString()
            }).ToList();
 
         }
@@ -41,7 +41,7 @@ namespace SchoolMaris.Pages.LevelSectionList
             if (ModelState.IsValid)
             {
                 var levelSectionWithSameSection = _db.LevelSection
-                                                  .Where(s => s.SectionID == LevelSection_.SectionID && s.LevelID == LevelSection_.LevelID && LevelSection_.LevelSectionID != s.LevelSectionID)
+                                                  .Where(s => s.LevelID == LevelSection_.LevelID && s.SectionID == LevelSection_.SectionID && LevelSection_.LevelSectionID != s.LevelSectionID)
                                                   .ToList();
                 if (levelSectionWithSameSection.Count == 0)
                 {

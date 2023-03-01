@@ -1,15 +1,21 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Hosting;
 using SchoolMaris.Model;
 using System;
+using System.IO.Compression;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 
 namespace SchoolMaris.Pages.TeacherList
 {
     public class CreateTeacherModel : PageModel
     {
         private readonly ApplicationDbContext _db;
+
         [BindProperty]
         public Teacher Teacher_ { get; set; }
 
@@ -24,12 +30,13 @@ namespace SchoolMaris.Pages.TeacherList
         }
         public async Task<IActionResult> OnPost()
         {
+  
             if (ModelState.IsValid)
             {
-                var TeacherWithSameName = _db.Teacher
-                                                        .Where(s => s.FirstName == Teacher_.FirstName && s.LastName == Teacher_.LastName && Teacher_.TeacherID == s.TeacherID)
-                                                        .ToList();
-                if (TeacherWithSameName.Count == 0)
+                var TeacherWithSameData = _db.Teacher
+                                                        .Where(s => s.FirstName == Teacher_.FirstName && s.LastName == Teacher_.LastName)
+                                                      .ToList();
+                if (TeacherWithSameData.Count == 0)
                 {
                     Teacher_.CreatedDate = DateTime.Now;
                     await _db.Teacher.AddAsync(Teacher_);
@@ -42,7 +49,9 @@ namespace SchoolMaris.Pages.TeacherList
                     return Page();
                 }
             }
+          
             return Page();
+
         }
     }
 }
