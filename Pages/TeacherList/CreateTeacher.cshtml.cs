@@ -15,7 +15,6 @@ namespace SchoolMaris.Pages.TeacherList
     public class CreateTeacherModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-
         [BindProperty]
         public Teacher Teacher_ { get; set; }
 
@@ -24,20 +23,36 @@ namespace SchoolMaris.Pages.TeacherList
             _db = db;
         }
 
-        public void OnGet()
+
+         public void OnGet()
         {
 
         }
+        
+
         public async Task<IActionResult> OnPost()
         {
-  
-            if (ModelState.IsValid)
-            {
+                byte[] bytes = null;
+                if (Teacher_.ImageFile != null)
+                {
+                    using (Stream fs = Teacher_.ImageFile.OpenReadStream())
+                    {
+                        using (BinaryReader br = new BinaryReader(fs))
+                        {
+                            bytes = br.ReadBytes((Int32)fs.Length);
+                        }
+                    }
+                    Teacher_.TeachersImage = Convert.ToBase64String(bytes, 0, bytes.Length);
+                }
+
+                
                 var TeacherWithSameData = _db.Teacher
-                                                        .Where(s => s.FirstName == Teacher_.FirstName && s.LastName == Teacher_.LastName)
-                                                      .ToList();
+                                                                           .Where(s => s.FirstName == Teacher_.FirstName && s.LastName == Teacher_.LastName)
+                                                                         .ToList();
+
                 if (TeacherWithSameData.Count == 0)
                 {
+
                     Teacher_.CreatedDate = DateTime.Now;
                     await _db.Teacher.AddAsync(Teacher_);
                     await _db.SaveChangesAsync();
@@ -48,9 +63,7 @@ namespace SchoolMaris.Pages.TeacherList
                     ModelState.AddModelError(" ", "Teacher Name already exist");
                     return Page();
                 }
-            }
-          
-            return Page();
+        
 
         }
     }

@@ -27,7 +27,7 @@
                 <table class="table table-striped border col justify-content-center">
                     <tr class="table-secondary">
                         <th class="col-1">
-                            <label>Profile Picture</label>
+                            <label asp-for="Teacher_.FirstOrDefault().TeachersImage"></label>
                         </th>
                         <th class="col-1">
                             <label asp-for="Teacher_.FirstOrDefault().FirstName"></label>
@@ -44,7 +44,7 @@
                         <th class="col-1">
                             <label asp-for="Teacher_.FirstOrDefault().Gender"></label>
                         </th>
-                        <th class="col-2">
+                        <th class="col-1">
                             <label asp-for="Teacher_.FirstOrDefault().Address"></label>
                         </th>
                         <th class="col-1">
@@ -53,6 +53,9 @@
                         <th class="col-1">
                             <label asp-for="Teacher_.FirstOrDefault().LastUpdatedDate"></label>
                         </th>
+                        <th class="col-3">
+
+                        </th>
                     </tr>
                     @foreach (var item in Model.Teacher_)
                     {
@@ -60,7 +63,7 @@
                         var mid = "myModal" + item.TeacherID;
                         <tr>
                             <td class="col-1">
-              
+                                <img src="data:image/jpg;base64,@item.TeachersImage" width="50px" height="50px"/>
                             </td>
                             <td class="col-1">
                                 <div style="text-transform:uppercase;"> @Html.DisplayFor(m=>item.FirstName)</div>
@@ -77,7 +80,7 @@
                             <td class="col-1">
                                 @Html.DisplayFor(m=>item.Gender)
                             </td>
-                            <td class="col-2">
+                            <td class="col-1">
                                 @Html.DisplayFor(m=>item.Address)
                             </td>
                             <td class="col-1">
@@ -86,7 +89,7 @@
                             <td class="col-1">
                                 @Html.DisplayFor(m=>item.LastUpdatedDate)
                             </td>
-                            <td>
+                            <td class="col-3">
                                 @*<nav class="nav-link text-dark col-2" data-toggle="modal" data-target="@tm">Hey </nav>*@
                                 <button type="button" class="btn btn-primary col-4" data-toggle="modal" data-target="@tm">  Delete</button>
 

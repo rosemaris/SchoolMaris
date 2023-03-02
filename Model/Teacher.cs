@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchoolMaris.Model
 {
@@ -9,6 +11,9 @@ namespace SchoolMaris.Model
 
         [Key]
         public int TeacherID { get; set; }
+        [Required]
+        [Display(Name = "Teachers' Profile")]
+        public string TeachersImage { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -33,5 +38,9 @@ namespace SchoolMaris.Model
 
         public List<LevelSubjectTeacher> LevelSubjectTeachers { get; set; }
         public List<LevelSectionTeacher> LevelSectionTeachers { get; set; }
+
+
+        [NotMapped] 
+        public IFormFile ImageFile { get; set; }
     }
 }

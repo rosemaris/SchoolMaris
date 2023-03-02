@@ -29,22 +29,26 @@ namespace SchoolMaris.Pages.TeacherList
         public string? TCode { get; set; }
         public async Task OnGetAsync()
         {
-            IQueryable<string> codeQuery = from m in _db.Teacher
-                                           orderby m.Gender
-                                           select m.Gender;
-            var teacher = from m in _db.Teacher
-                          select m;
-            if (!string.IsNullOrEmpty(TSearchString))
+            if(_db.Teacher != null)
             {
-                teacher = teacher.Where(s => s.LastName.Contains(TSearchString));
-            }
+                IQueryable<string> codeQuery = from m in _db.Teacher
+                                               orderby m.Gender
+                                               select m.Gender;
+                var teacher = from m in _db.Teacher
+                              select m;
+                if (!string.IsNullOrEmpty(TSearchString))
+                {
+                    teacher = teacher.Where(s => s.LastName.Contains(TSearchString));
+                }
 
-            if (!string.IsNullOrEmpty(TCode))
-            {
-                teacher = teacher.Where(x => x.Gender == TCode);
+                if (!string.IsNullOrEmpty(TCode))
+                {
+                    teacher = teacher.Where(x => x.Gender == TCode);
+                }
+                Codes = new SelectList(await codeQuery.Distinct().ToListAsync());
+                Teacher_ = await teacher.ToListAsync();
             }
-            Codes = new SelectList(await codeQuery.Distinct().ToListAsync());
-            Teacher_ = await teacher.ToListAsync();
+           
         }
         
 
