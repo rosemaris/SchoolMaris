@@ -46,7 +46,8 @@ namespace SchoolMaris.Pages.LevelSectionTeacherList
                 levelsectionteacher = levelsectionteacher.Where(x => x.LevelSection.Level.Code == LSecTeachCode);
             }
             Codes = new SelectList(await codeQuery.Distinct().ToListAsync());
-            LevelSectionTeacher_ = await levelsectionteacher.Include(x => x.LevelSection).Include(x => x.LevelSection.Section).Include(x => x.LevelSection.Level).Include(x => x.Teacher).ToListAsync();
+            LevelSectionTeacher_ = await levelsectionteacher.Include(x => x.LevelSection).Include(x => x.LevelSection.Section)
+                .Include(x => x.LevelSection.Level).Include(x => x.Teacher).ToListAsync();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)

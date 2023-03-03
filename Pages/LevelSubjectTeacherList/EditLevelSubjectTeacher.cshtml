@@ -1,0 +1,59 @@
+﻿@page
+@model SchoolMaris.Pages.LevelSubjectTeacherList.EditLevelSubjectTeacherModel
+
+
+
+<br />
+<h2 class="text-info">Update Teaching Sujbect Class</h2>
+<br />
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+
+        <input type="hidden" asp-for="LevelSubjectTeacher_.LevelSubjectTeacherID" />
+
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="LevelSubjectTeacher_.LevelSubject"></label>
+            </div>
+            <div class="col-6">
+                @Html.DropDownListFor(x => Model.LevelSubjectTeacher_.LevelSubjectID, new SelectList(Model.LevelSubjectTeacher_.LevelSubjectLists, "Value", "Text"),
+                htmlAttributes: new { @class = "form-control", @id = "Region" })
+            </div>
+
+            <span asp-validation-for="LevelSubjectTeacher_.LevelSubjectID" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="LevelSubjectTeacher_.Teacher"></label>
+            </div>
+            <div class="col-6">
+                @Html.DropDownListFor(x => Model.LevelSubjectTeacher_.TeacherID, new SelectList(Model.LevelSubjectTeacher_.TeacherLists, "Value", "Text"),
+                htmlAttributes: new { @class = "form-control", @id = "Region" })
+            </div>
+            <span asp-validation-for="LevelSubjectTeacher_.TeacherID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input id="savebtn" type="submit" value="Update" class="btn btn-primary form-control">
+            </div>
+            <div class="col-3">
+                <a asp-page="LevelSubjectTeacherIndex" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+}
+
