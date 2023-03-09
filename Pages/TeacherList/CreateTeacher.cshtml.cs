@@ -47,8 +47,8 @@ namespace SchoolMaris.Pages.TeacherList
 
                 
                 var TeacherWithSameData = _db.Teacher
-                                                                           .Where(s => s.FirstName == Teacher_.FirstName && s.LastName == Teacher_.LastName)
-                                                                         .ToList();
+                                        .Where(s => s.FirstName == Teacher_.FirstName && s.LastName == Teacher_.LastName)
+                                        .ToList();
 
                 if (TeacherWithSameData.Count == 0)
                 {

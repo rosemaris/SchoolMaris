@@ -6,17 +6,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchoolMaris.Model
 {
-    public class Teacher
+    public class PupilsProfile
     {
-
         [Key]
-        public int TeacherID { get; set; }
+        public int PupilsProfileID { get; set; }
         [Required]
-        [Display(Name = "Teachers' Profile")]
-        public string TeachersImage { get; set; }
-
+        [Display(Name = "Pupils' Profile")]
+        public string PupilsImage { get;set; }
         [Required]
-        public string FirstName { get; set; }
+        public string FirstName { get; set;}
         [Required]
         public string LastName { get; set; }
 
@@ -28,19 +26,15 @@ namespace SchoolMaris.Model
         public string Address { get; set; }
 
         [Display(Name = "Created Date")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
+        [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         public DateTime CreatedDate { get; set; }
 
         [Display(Name = "Last Updated Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         public DateTime LastUpdatedDate { get; set; }
 
-
-        public List<LevelSubjectTeacher> LevelSubjectTeachers { get; set; }
-        public List<LevelSectionTeacher> LevelSectionTeachers { get; set; }
-
-
-        [NotMapped] 
+        [NotMapped]
         public IFormFile ImageFile { get; set; }
+
     }
 }

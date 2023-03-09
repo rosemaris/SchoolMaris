@@ -5,6 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20230309070754_AddedEnrolmentProfilestoModel.cs" />
+    <Compile Remove="Migrations\20230309070754_AddedEnrolmentProfilestoModel.Designer.cs" />
+    <Compile Remove="Migrations\20230309071053_AddedEnrolmentProfile.cs" />
+    <Compile Remove="Migrations\20230309071053_AddedEnrolmentProfile.Designer.cs" />
+    <Compile Remove="Migrations\20230309071909_AddedEnrolmentProfile.cs" />
+    <Compile Remove="Migrations\20230309071909_AddedEnrolmentProfile.Designer.cs" />
+    <Compile Remove="Migrations\20230309072417_AddedEnrolmentFrofile.cs" />
+    <Compile Remove="Migrations\20230309072417_AddedEnrolmentFrofile.Designer.cs" />
+    <Compile Remove="Migrations\20230309073105_AddedEnrolmentProfile.cs" />
+    <Compile Remove="Migrations\20230309073105_AddedEnrolmentProfile.Designer.cs" />
+    <Compile Remove="Migrations\20230309073958_AddedEnrolmentProfile.cs" />
+    <Compile Remove="Migrations\20230309073958_AddedEnrolmentProfile.Designer.cs" />
+    <Compile Remove="Migrations\20230309074342_AddedEPPupils.cs" />
+    <Compile Remove="Migrations\20230309074342_AddedEPPupils.Designer.cs" />
+    <Compile Remove="Migrations\20230309074756_AddedEnrolmentProfile.cs" />
+    <Compile Remove="Migrations\20230309074756_AddedEnrolmentProfile.Designer.cs" />
+    <Compile Remove="Migrations\20230309080856_AddedNew.cs" />
+    <Compile Remove="Migrations\20230309080856_AddedNew.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.19.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0" />

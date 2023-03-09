@@ -1,69 +1,68 @@
-﻿ @page
-@model SchoolMaris.Pages.TeacherList.TeacherIndexModel
+﻿@page
+@model SchoolMaris.Pages.PupilsList.PupilsIndexModel
+
 <br />
-<div class="container row p-0 m-0">
+<div class="conatiner row p-0 m-0">
     <div class="col-9">
-        <h2 class="text-info">Teachers List</h2>
+        <h2 class="text-info">Pupils List</h2>
     </div>
     <div class="col-3">
-        <a asp-page="CreateTeacher" class="btn btn-info form-control text-white">Add New Teacher</a>
+        <a asp-page="CreatePupil" class="btn btn-info form-control text-white">Add New Pupil's Profile</a>
     </div>
-
-    <div class="col-12 border p-3 mt-3">
+    <div class="col-12 border-secondary p-3 mt-3">
         <form>
             <p>
-                <select asp-for="TCode" asp-items="Model.Codes">
+                <select asp-for="PCode" asp-items="Model.Codes">
                     <option value="">All</option>
                 </select>
-                Teachers LastName: <input type="text" asp-for="TSearchString" />
+                Pupils LastName: <input type="text" asp-for="PSearchString" />
                 <input type="submit" value="Filter" />
             </p>
         </form>
-        
-        
         <form method="post">
-            @if (Model.Teacher_.Count() > 0)
+            @if(Model.PupilsProfile_.Count() >0)
             {
                 <table class="table table-striped border col justify-content-center">
                     <tr class="table-secondary">
                         <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().TeachersImage"></label>
+                            <label asp-for="PupilsProfile_.FirstOrDefault().PupilsImage"></label>
                         </th>
                         <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().FirstName"></label>
+                            <label asp-for="PupilsProfile_.FirstOrDefault().FirstName"></label>
                         </th>
                         <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().LastName"></label>
+                            <label asp-for="PupilsProfile_.FirstOrDefault().LastName"></label>
+                        </th>
+                              <th class="col-1">
+                            <label asp-for="PupilsProfile_.FirstOrDefault().DateOfBirth"></label>
                         </th>
                         <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().DateOfBirth"></label>
+                            <label asp-for="PupilsProfile_.FirstOrDefault().Age"></label>
                         </th>
                         <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().Age"></label>
+                            <label asp-for="PupilsProfile_.FirstOrDefault().Gender"></label>
+                        </th>
+                              <th class="col-1">
+                            <label asp-for="PupilsProfile_.FirstOrDefault().Address"></label>
                         </th>
                         <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().Gender"></label>
+                            <label asp-for="PupilsProfile_.FirstOrDefault().CreatedDate"></label>
                         </th>
                         <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().Address"></label>
+                            <label asp-for="PupilsProfile_.FirstOrDefault().LastUpdatedDate"></label>
                         </th>
                         <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().CreatedDate"></label>
-                        </th>
-                        <th class="col-1">
-                            <label asp-for="Teacher_.FirstOrDefault().LastUpdatedDate"></label>
-                        </th>
-                        <th class="col-3">
 
                         </th>
                     </tr>
-                    @foreach (var item in Model.Teacher_)
+
+                    @foreach (var item in Model.PupilsProfile_)
                     {
-                        var tm = "#myModal" + item.TeacherID;
-                        var mid = "myModal" + item.TeacherID;
+                        var tm = "#myModal" + item.PupilsProfileID;
+                        var mid = "myModal" + item.PupilsProfileID;
                         <tr>
                             <td class="col-1">
-                                <img src="data:image/jpg;base64,@item.TeachersImage" width="50px" height="50px"/>
+                                <img src="data:image/jpg;base64,@item.PupilsImage" width="50px" height="50px" />
                             </td>
                             <td class="col-1">
                                 <div style="text-transform:uppercase;"> @Html.DisplayFor(m=>item.FirstName)</div>
@@ -90,30 +89,28 @@
                                 @Html.DisplayFor(m=>item.LastUpdatedDate)
                             </td>
                             <td class="col-3">
-                                @*<nav class="nav-link text-dark col-2" data-toggle="modal" data-target="@tm">Hey </nav>*@
                                 <button type="button" class="btn btn-primary col-4" data-toggle="modal" data-target="@tm">  Delete</button>
 
                                 <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Teacher Delete Confirmation</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Pupil's Profile Delete Confirmation</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                Are you sure want to Delete this Teacher?
+                                                Are you sure want to Delete this Pupil's Profile?
                                             </div>
                                             <div class="modal-footer">
-                                                <button asp-page-handler="Delete" asp-route-Id="@item.TeacherID" id="deleteBtn" class="btn bg-danger  text-white mr-1">YES</button>
+                                                <button asp-page-handler="Delete" asp-route-Id="@item.PupilsProfileID" id="deleteBtn" class="btn bg-danger  text-white mr-1">YES</button>
                                                 <button type="button" class="btn btn-success " data-dismiss="modal">NO</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <a asp-page="EditTeacher" asp-route-Id="@item.TeacherID" class="btn bg-success text-white mr-1 col-4">Edit</a>
-                                @*<a class="nav-link text-dark col-2" asp-page="EditTeacher" asp-route-id="@item.TeacherID">Edit </a>@*@
+                                <a asp-page="EditPupil" asp-route-Id="@item.PupilsProfileID" class="btn bg-success text-white mr-1 col-4">Edit</a>
                             </td>
                         </tr>
                     }
@@ -121,10 +118,8 @@
             }
             else
             {
-                <p>No Available Teacher's Profile.</p>
+                <p>No Available Pupil's Profile.</p>
             }
         </form>
     </div>
 </div>
-
-

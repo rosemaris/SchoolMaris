@@ -27,7 +27,7 @@ namespace SchoolMaris.Model
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         public DateTime LastUpdatedDate { get; set; }
 
-        
+
         [NotMapped]
         public IEnumerable<SelectListItem> LevelSubjectLists { get; set; } = new List<SelectListItem>();
         [NotMapped]

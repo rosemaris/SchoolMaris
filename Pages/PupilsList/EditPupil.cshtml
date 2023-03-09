@@ -1,0 +1,110 @@
+﻿@page
+@model SchoolMaris.Pages.PupilsList.EditPupilModel
+
+
+
+<br />
+<h2 class="text-info">Update  Pupil's Data'</h2>
+<br />
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="border container" style="padding:30px;">
+    <form method="post" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="PupilsProfile_.PupilsProfileID" />
+
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="PupilsProfile_.ImageFile"></label>
+            </div>
+            <div class="col-6">
+                <input type="file" asp-for="PupilsProfile_.ImageFile" class="form-control" />
+            </div>
+            <span asp-validation-for="PupilsProfile_.ImageFile" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="PupilsProfile_.FirstName"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="PupilsProfile_.FirstName" class="form-control" />
+            </div>
+            <span asp-validation-for="PupilsProfile_.FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="PupilsProfile_.LastName"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="PupilsProfile_.LastName" class="form-control" />
+            </div>
+            <span asp-validation-for="PupilsProfile_.LastName" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="PupilsProfile_.DateOfBirth"></label>
+            </div>
+            <div class="col-6">
+                <input type="date" asp-for="PupilsProfile_.DateOfBirth" class="form-control" />
+            </div>
+            <span asp-validation-for="PupilsProfile_.DateOfBirth" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="PupilsProfile_.Age"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="PupilsProfile_.Age" class="form-control" />
+            </div>
+            <span asp-validation-for="PupilsProfile_.Age" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="PupilsProfile_.Gender"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="PupilsProfile_.Gender" class="form-control" />
+            </div>
+            <span asp-validation-for="PupilsProfile_.Gender" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="PupilsProfile_.Address"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="PupilsProfile_.Address" class="form-control" />
+            </div>
+            <span asp-validation-for="PupilsProfile_.Address" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input id="savebtn" type="submit" value="Update" class="btn btn-primary form-control">
+            </div>
+            <div class="col-3">
+                <a asp-page="PupilsIndex" class="btn btn-success form-control">Back to List</a>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+}
+
