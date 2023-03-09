@@ -23,6 +23,12 @@
     <Compile Remove="Migrations\20230309074756_AddedEnrolmentProfile.Designer.cs" />
     <Compile Remove="Migrations\20230309080856_AddedNew.cs" />
     <Compile Remove="Migrations\20230309080856_AddedNew.Designer.cs" />
+    <Compile Remove="Migrations\20230309081624_addNew.cs" />
+    <Compile Remove="Migrations\20230309081624_addNew.Designer.cs" />
+    <Compile Remove="Migrations\20230309082014_AddedPupilsProfile.cs" />
+    <Compile Remove="Migrations\20230309082014_AddedPupilsProfile.Designer.cs" />
+    <Compile Remove="Migrations\20230309083052_add-migration addnew.cs" />
+    <Compile Remove="Migrations\20230309083052_add-migration addnew.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

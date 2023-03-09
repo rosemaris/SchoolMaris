@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SchoolMaris.Migrations
 {
-    public partial class AddedPupilsProfiletoModel : Migration
+    public partial class AddedPupilsProfileToDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace SchoolMaris.Migrations
                 name: "PupilsProfile",
                 columns: table => new
                 {
-                    PupilsID = table.Column<int>(nullable: false)
+                    PupilsProfileID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PupilsImage = table.Column<string>(nullable: false),
                     FirstName = table.Column<string>(nullable: false),
@@ -25,7 +25,7 @@ namespace SchoolMaris.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PupilsProfile", x => x.PupilsID);
+                    table.PrimaryKey("PK_PupilsProfile", x => x.PupilsProfileID);
                 });
         }
 

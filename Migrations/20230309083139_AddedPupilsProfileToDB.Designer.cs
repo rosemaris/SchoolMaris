@@ -10,8 +10,8 @@ using SchoolMaris.Model;
 namespace SchoolMaris.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230309021601_AddedPupilsProfiletoModel")]
-    partial class AddedPupilsProfiletoModel
+    [Migration("20230309083139_AddedPupilsProfileToDB")]
+    partial class AddedPupilsProfileToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -161,7 +161,7 @@ namespace SchoolMaris.Migrations
 
             modelBuilder.Entity("SchoolMaris.Model.PupilsProfile", b =>
                 {
-                    b.Property<int>("PupilsID")
+                    b.Property<int>("PupilsProfileID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -196,7 +196,7 @@ namespace SchoolMaris.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PupilsID");
+                    b.HasKey("PupilsProfileID");
 
                     b.ToTable("PupilsProfile");
                 });

@@ -159,7 +159,7 @@ namespace SchoolMaris.Migrations
 
             modelBuilder.Entity("SchoolMaris.Model.PupilsProfile", b =>
                 {
-                    b.Property<int>("PupilsID")
+                    b.Property<int>("PupilsProfileID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -194,7 +194,7 @@ namespace SchoolMaris.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PupilsID");
+                    b.HasKey("PupilsProfileID");
 
                     b.ToTable("PupilsProfile");
                 });
