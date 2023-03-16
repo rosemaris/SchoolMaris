@@ -25,7 +25,7 @@ namespace SchoolMaris.Pages.LevelSubjectList
             .Select(subject => new SelectListItem
              {
                  Value = subject.SubjectID.ToString(),
-                 Text   = subject.Description.ToString()
+                 Text   = subject.Code.ToString()
              }).ToList();
           
             LevelSubject_.LevelLists = _db.Level.ToList()

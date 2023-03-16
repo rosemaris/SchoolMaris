@@ -29,6 +29,22 @@
     <Compile Remove="Migrations\20230309082014_AddedPupilsProfile.Designer.cs" />
     <Compile Remove="Migrations\20230309083052_add-migration addnew.cs" />
     <Compile Remove="Migrations\20230309083052_add-migration addnew.Designer.cs" />
+    <Compile Remove="Migrations\20230309084825_AddedEnrolmentProfiletoDB.cs" />
+    <Compile Remove="Migrations\20230309084825_AddedEnrolmentProfiletoDB.Designer.cs" />
+    <Compile Remove="Migrations\20230309233830_AddedLevelSectionTeacherToEnrolment.cs" />
+    <Compile Remove="Migrations\20230309233830_AddedLevelSectionTeacherToEnrolment.Designer.cs" />
+    <Compile Remove="Migrations\20230309234931_AddedEnrolmentProfile.cs" />
+    <Compile Remove="Migrations\20230309234931_AddedEnrolmentProfile.Designer.cs" />
+    <Compile Remove="Migrations\20230310000041_AddedSubjecttOEnrolment.cs" />
+    <Compile Remove="Migrations\20230310000041_AddedSubjecttOEnrolment.Designer.cs" />
+    <Compile Remove="Migrations\20230310001848_AddedEnrolmentToDB.cs" />
+    <Compile Remove="Migrations\20230310001848_AddedEnrolmentToDB.Designer.cs" />
+    <Compile Remove="Migrations\20230316031548_AddedSubjectToEnrolment.cs" />
+    <Compile Remove="Migrations\20230316031548_AddedSubjectToEnrolment.Designer.cs" />
+    <Compile Remove="Migrations\20230316043139_AddedSubjectToEnrolment.cs" />
+    <Compile Remove="Migrations\20230316043139_AddedSubjectToEnrolment.Designer.cs" />
+    <Compile Remove="Migrations\20230316045019_addedSubjectToEnrolment.cs" />
+    <Compile Remove="Migrations\20230316045019_addedSubjectToEnrolment.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

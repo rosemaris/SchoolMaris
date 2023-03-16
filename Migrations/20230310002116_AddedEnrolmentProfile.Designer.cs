@@ -3,41 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolMaris.Model;
 
 namespace SchoolMaris.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230310002116_AddedEnrolmentProfile")]
+    partial class AddedEnrolmentProfile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("SchoolMaris.Model.Credentials", b =>
-                {
-                    b.Property<int>("CredentialID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CredentialID");
-
-                    b.ToTable("Credentials");
-                });
 
             modelBuilder.Entity("SchoolMaris.Model.EnrolmentProfile", b =>
                 {
@@ -352,13 +334,13 @@ namespace SchoolMaris.Migrations
                     b.HasOne("SchoolMaris.Model.LevelSubjectTeacher", "LevelSubjectTeacher")
                         .WithMany("EnrolmentProfiles")
                         .HasForeignKey("LevelSubjectTeacherID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolMaris.Model.PupilsProfile", "PupilsProfile")
                         .WithMany("EnrolmentProfiles")
                         .HasForeignKey("PupilsProfileID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -367,13 +349,13 @@ namespace SchoolMaris.Migrations
                     b.HasOne("SchoolMaris.Model.Level", "Level")
                         .WithMany("LevelSections")
                         .HasForeignKey("LevelID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolMaris.Model.Section", "Section")
                         .WithMany("LevelSections")
                         .HasForeignKey("SectionID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -382,13 +364,13 @@ namespace SchoolMaris.Migrations
                     b.HasOne("SchoolMaris.Model.LevelSection", "LevelSection")
                         .WithMany("LevelSectionTeachers")
                         .HasForeignKey("LevelSectionID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolMaris.Model.Teacher", "Teacher")
                         .WithMany("LevelSectionTeachers")
                         .HasForeignKey("TeacherID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -397,13 +379,13 @@ namespace SchoolMaris.Migrations
                     b.HasOne("SchoolMaris.Model.Level", "Level")
                         .WithMany("LevelSubjects")
                         .HasForeignKey("LevelID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolMaris.Model.Subject", "Subject")
                         .WithMany("LevelSubjects")
                         .HasForeignKey("SubjectID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -412,13 +394,13 @@ namespace SchoolMaris.Migrations
                     b.HasOne("SchoolMaris.Model.LevelSubject", "LevelSubject")
                         .WithMany("LevelSubjectTeachers")
                         .HasForeignKey("LevelSubjectID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SchoolMaris.Model.Teacher", "Teacher")
                         .WithMany("LevelSubjectTeachers")
                         .HasForeignKey("TeacherID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

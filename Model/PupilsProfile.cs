@@ -33,8 +33,14 @@ namespace SchoolMaris.Model
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         public DateTime LastUpdatedDate { get; set; }
 
+
+       public List<EnrolmentProfile> EnrolmentProfiles { get; set; }
+
+
         [NotMapped]
         public IFormFile ImageFile { get; set; }
+
+
 
     }
 }

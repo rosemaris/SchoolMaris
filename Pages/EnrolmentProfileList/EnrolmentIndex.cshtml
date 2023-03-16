@@ -1,69 +1,75 @@
 ﻿@page
-@model SchoolMaris.Pages.LevelSubjectTeacherList.LevelSubjectTeacherIndexModel
-
+@model SchoolMaris.Pages.EnrolmentProfileList.EnrolmentIndexModel
 
 
 
 <br />
 <div class="container row p-0 m-0">
     <div class="col-9">
-        <h2 class="text-info">Teaching Subject Class</h2>
+        <h2 class="text-info">Enrolment List</h2>
     </div>
     <div class="col-3">
-        <a asp-page="CreateLevelSubjectTeacher" class="btn btn-info form-control text-white">Add New Teaching Subject Class</a>
+        <a asp-page="CreateEnrolment" class="btn btn-info form-control text-white">Add New Enrollee</a>
     </div>
 
     <div class="col-12 border p-3 mt-3">
         <form>
             <p>
-                <select asp-for="LSubTeachCode" asp-items="Model.Codes">
+                <select asp-for="ECode" asp-items="Model.Codes">
                     <option value="">All</option>
                 </select>
-                Teachers LastName: <input type="text" asp-for="LSubTeachSearchString" />
+                Pupils LastName: <input type="text" asp-for="ESearchString" />
                 <input type="submit" value="Filter" />
             </p>
         </form>
 
         <form method="post">
-            @if (Model.LevelSubjectTeacher_.Count() > 0)
+            @if (Model.EnrolmentProfile_.Count() > 0)
             {
                 <table class="table table-striped border col justify-content-center">
                     <tr class="table-secondary">
                         <th class="col-1">
-                            <label asp-for="LevelSubjectTeacher_.FirstOrDefault().LevelSubject.Level"></label>
+                            <label asp-for="EnrolmentProfile_.FirstOrDefault().LevelSubjectTeacher.LevelSubject.Level"></label>
                         </th>
                         <th class="col-1">
-                            <label asp-for="LevelSubjectTeacher_.FirstOrDefault().LevelSubject.Subject"></label>
+                            <label asp-for="EnrolmentProfile_.FirstOrDefault().PupilsProfile"></label>
+                        </th>
+                        <th class="col-1">
+                            <label asp-for="EnrolmentProfile_.FirstOrDefault().LevelSubjectTeacher.LevelSubject.Subject"></label>
+                        </th>
+                        <th class="col-1">
+                            <label asp-for="EnrolmentProfile_.FirstOrDefault().LevelSubjectTeacher.Teacher"></label>
                         </th>
                         <th class="col-2">
-                            <label asp-for="LevelSubjectTeacher_.FirstOrDefault().Teacher"></label>
+                            <label asp-for="EnrolmentProfile_.FirstOrDefault().CreatedDate"></label>
                         </th>
                         <th class="col-2">
-                            <label asp-for="LevelSubjectTeacher_.FirstOrDefault().CreatedDate"></label>
-                        </th>
-                        <th class="col-2">
-                            <label asp-for="LevelSubjectTeacher_.FirstOrDefault().LastUpdatedDate"></label>
+                            <label asp-for="EnrolmentProfile_.FirstOrDefault().LastUpdatedDate"></label>
                         </th>
                         <th class="col-2">
 
                         </th>
                     </tr>
 
-                    @foreach (var item in Model.LevelSubjectTeacher_)
+                    @foreach (var item in Model.EnrolmentProfile_)
                     {
-                        var tm = "#myModal" + item.LevelSubjectTeacherID;
-                        var mid = "myModal" + item.LevelSubjectTeacherID;
+                        var tm = "#myModal" + item.EnrolmentProfileID;
+                        var mid = "myModal" + item.EnrolmentProfileID;
                         <tr>
                             <td class="col-1">
-                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.LevelSubject.Level.Code)</div>
+                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.LevelSubjectTeacher.LevelSubject.Level.Code)</div>
+                                
                             </td>
                             <td class="col-1">
-                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.LevelSubject.Subject.Description)</div>
+                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.PupilsProfile.LastName)</div>
+                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.PupilsProfile.FirstName)</div>
                             </td>
-                            <td class="col-2">
-                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.Teacher.LastName)</div>
-                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.Teacher.FirstName)</div>
-
+                            <td class="col-1">
+                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.LevelSubjectTeacher.LevelSubject.Subject.Code)</div>
+                            </td>
+                            <td class="col-1">
+                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.LevelSubjectTeacher.Teacher.LastName)</div>
+                                <div style="text-transform:uppercase;">  @Html.DisplayFor(m=>item.LevelSubjectTeacher.Teacher.FirstName)</div>
                             </td>
                             <td class="col-2">
                                 @Html.DisplayFor(m=>item.CreatedDate)
@@ -79,23 +85,23 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Teaching Subject Class Delete Confirmation</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Enrollee Delete Confirmation</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                Are you sure want to Delete this Teaching Subject Class?
+                                                Are you sure want to Delete this Enrollee?
                                             </div>
                                             <div class="modal-footer">
-                                                <button asp-page-handler="Delete" asp-route-Id="@item.LevelSubjectTeacherID" id="deleteBtn" class="btn bg-danger  text-white mr-1">YES</button>
+                                                <button asp-page-handler="Delete" asp-route-Id="@item.EnrolmentProfileID" id="deleteBtn" class="btn bg-danger  text-white mr-1">YES</button>
                                                 <button type="button" class="btn btn-success " data-dismiss="modal">NO</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <a asp-page="EditLevelSubjectTeacher" asp-route-id="@item.LevelSubjectTeacherID" class="btn bg-success text-white mr-1 col-4">Edit</a>
+                                <a asp-page="EditEnrolment" asp-route-id="@item.EnrolmentProfileID" class="btn bg-success text-white mr-1 col-4">Edit</a>
 
                             </td>
                         </tr>
@@ -104,9 +110,10 @@
             }
             else
             {
-                <p>No Available Teaching Subject Class.</p>
+                <p>No Available Enrollee Profile.</p>
             }
         </form>
     </div>
 </div>
+
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace SchoolMaris.Model
 {
@@ -17,5 +18,18 @@ namespace SchoolMaris.Model
         public DbSet<LevelSectionTeacher> LevelSectionTeacher { get; set; }
         public DbSet<LevelSubjectTeacher> LevelSubjectTeacher { get; set; }
         public DbSet<PupilsProfile> PupilsProfile { get; set; }
+        public DbSet<EnrolmentProfile> EnrolmentProfile { get; set; }
+        public DbSet<Credentials> Credentials { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            foreach (var foreignKey in modelBuilder.Model.GetEntityTypes()
+                .SelectMany(e => e.GetForeignKeys()))
+            {
+                foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+        }
     }
 }

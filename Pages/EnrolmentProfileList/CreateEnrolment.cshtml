@@ -1,0 +1,57 @@
+﻿@page
+@model SchoolMaris.Pages.EnrolmentProfileList.CreateEnrolmentModel
+
+
+
+
+<br />
+<h2 class="text-info">Add new Enrollee Profile</h2>
+<br />
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="EnrolmentProfile_.PupilsProfile"></label>
+            </div>
+            <div class="col-6">
+                @Html.DropDownListFor(x => Model.EnrolmentProfile_.PupilsProfileID, new SelectList(Model.EnrolmentProfile_.PupilsLists, "Value", "Text"),
+                htmlAttributes: new { @class = "form-control", @id = "Region" })
+            </div>
+
+            <span asp-validation-for="EnrolmentProfile_.PupilsProfileID" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="EnrolmentProfile_.LevelSubjectTeacher.LevelSubject"></label>
+            </div>
+            <div class="col-6">
+                @Html.DropDownListFor(x => Model.EnrolmentProfile_.LevelSubjectTeacherID, new SelectList(Model.EnrolmentProfile_.LevelSubjectTeacherLists, "Value", "Text"),
+                htmlAttributes: new { @class = "form-control", @id = "Region" })
+            </div>
+            <span asp-validation-for="EnrolmentProfile_.EnrolmentProfileID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input id="savebtn" type="submit" value="Save" class="btn btn-primary form-control">
+            </div>
+            <div class="col-3">
+                <a asp-page="EnrolmentIndex" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+}
+
