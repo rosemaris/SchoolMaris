@@ -1,44 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using SchoolMaris.Model;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using System;
 namespace SchoolMaris.Pages.Account
 {
-    public class LogInModel : PageModel
+    public class LOGINModel : PageModel
     {
+
         private readonly ApplicationDbContext _db;
 
         [BindProperty]
-        public Credentials Credentials_ { get; set; }
-        public LogInModel(ApplicationDbContext db)
+        public Credentials Credentials_ { get; set; }  = new Credentials();
+        public LOGINModel(ApplicationDbContext db)
         {
             _db = db;
         }
-        public async Task OnGet(int id)
-        {
-            Credentials_ = await _db.Credentials.FindAsync(id);
-        }
 
-        public async Task<IActionResult> OnPost(int id)
+        public void OnGet()
+        {
+       
+        }
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
-                var inputCredential = await _db.Credentials.FindAsync(id);
-                if (inputCredential == null)
+                var credentilsWithSameData = _db.Credentials
+                                                  .Where(s => s.UserName == Credentials_.UserName && s.Password == Credentials_.Password && s.CredentialID != Credentials_.CredentialID)
+                                                  .ToList();
+                if (credentilsWithSameData.Count == 0)
                 {
-                    ModelState.AddModelError(" ", "Credential Cannot Be Found");
+
+                    ModelState.AddModelError(" ", "Log In Credentials Cannot Be Found");
                     return Page();
                 }
-                return RedirectToPage("/Index");
+                else
+                {
+                    await _db.Credentials.AddAsync(Credentials_);
+                    return RedirectToPage("/CurriculumPages/Index");
+                }
             }
-            return RedirectToPage("/Index");
+            return Page();
         }
-
     }
 }

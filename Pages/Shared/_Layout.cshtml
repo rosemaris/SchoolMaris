@@ -19,83 +19,9 @@
                 <a class="navbar-brand" asp-area="" asp-page="/Index">SchoolSystem</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
+         
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="dropdown">
-                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/Index">Home</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/Account/LogIn">Account</a>
-                        <div class="dropdown-divider"></div>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">School Curriculum </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/SubjectList/Index">Subject</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelList/LevelIndex">Level</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/SectionList/SectionIndex">Section</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSubjectList/LevelSubjectIndex">LevelSubject</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSectionList/LevelSectionIndex">LevelSection</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSubjectTeacherList/LevelSubjectTeacherIndex">Level&Subject Teacher</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSectionTeacherList/LevelSectionTeacherIndex">Teaching Advisory</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/TeacherList/TeacherIndex">Teachers' Profile</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/PupilsList/PupilsIndex">Pupils' Profile</a>
-                    </div>
-                </div>
-
-    
-               
-                <div class="dropdown">
-                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Level/Subject </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/SubjectList/Index">Subject</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelList/LevelIndex">Level</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSubjectList/LevelSubjectIndex">LevelSubject</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Level/Section </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelList/LevelIndex">Level</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/SectionList/SectionIndex">Section</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSectionList/LevelSectionIndex">LevelSection</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LevelSubjectTeacher </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSubjectList/LevelSubjectIndex">LevelSubject</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/TeacherList/TeacherIndex">Teacher</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSubjectTeacherList/LevelSubjectTeacherIndex">LevelSubjectTeacher</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LevelSectionTeacher </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSectionList/LevelSectionIndex">LevelSection</a>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/TeacherList/TeacherIndex">Teacher</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/LevelSectionTeacherList/LevelSectionTeacherIndex">LevelSectionTeacher</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pupils' Profile </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/PupilsList/PupilsIndex">Pupils' Profile</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enrolment Profile</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" type="button" asp-area="" asp-page="/EnrolmentProfileList/EnrolmentIndex">Enrolment Profile</a>
-                    </div>
-                </div>
-
             </div>
         </nav>
     </header>
