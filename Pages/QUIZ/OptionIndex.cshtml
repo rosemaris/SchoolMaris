@@ -1,0 +1,80 @@
+﻿@page
+@model SchoolMaris.Pages.QUIZ.OptionIndexModel
+
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h2 class="text-info">Option List</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Option" class="btn btn-info form-control text-white">Add New Option</a>
+    </div>
+    <div class="col-12 border p-3 mt-3">
+        <form>
+            <p>
+                Option: <input type="text" asp-for="OSearchString" />
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+
+        <form method="post">
+            @if (Model.Option_.Count() > 0)
+            {
+                <table class="table table-striped border col justify-content-center">
+                    <tr class="table-secondary">
+                        <th class="col-8">
+                            <label asp-for="Option_.FirstOrDefault().Options"></label>
+                        </th>
+                        <th class="col-4">
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.Option_)
+                    {
+                        var tm = "#myModal" + item.OptionID;
+                        var mid = "myModal" + item.OptionID;
+                        <tr>
+                            <td class="col-8">
+                                @Html.DisplayFor(m=>item.Options)
+                            </td>
+                            <td class="col-4">
+
+                                <button type="button" class="btn btn-primary col-4" data-toggle="modal" data-target="@tm">  Delete</button>
+
+                                <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Option Delete Confirmation</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure want to Delete this Option?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button asp-page-handler="Delete" asp-route-Id="@item.OptionID" id="deleteBtn" class="btn bg-danger  text-white mr-1">YES</button>
+                                                <button type="button" class="btn btn-success " data-dismiss="modal">NO</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a asp-page="OptionEdit" asp-route-id="@item.OptionID" class="btn bg-success text-white mr-1 col-4">Edit</a>
+
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No Available Option.</p>
+            }
+        </form>
+    </div>
+</div>
+
+

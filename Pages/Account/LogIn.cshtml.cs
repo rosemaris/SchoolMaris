@@ -4,6 +4,8 @@ using SchoolMaris.Model;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+
+
 namespace SchoolMaris.Pages.Account
 {
     public class LOGINModel : PageModel
@@ -32,7 +34,7 @@ namespace SchoolMaris.Pages.Account
                 if (credentilsWithSameData.Count == 0)
                 {
 
-                    ModelState.AddModelError(" ", "Log In Credentials Cannot Be Found");
+                    ModelState.AddModelError(" ", "Invalid User Name or Password Credentials");
                     return Page();
                 }
                 else

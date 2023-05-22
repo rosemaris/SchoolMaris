@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolMaris.Model;
 
 namespace SchoolMaris.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230511033139_AddedQuizQuestiontoDB")]
+    partial class AddedQuizQuestiontoDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -287,18 +289,10 @@ namespace SchoolMaris.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AKeyID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AnswerKeyAKeyID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Question")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("QQuestionID");
-
-                    b.HasIndex("AnswerKeyAKeyID");
 
                     b.ToTable("QuizQuestion");
                 });
@@ -473,14 +467,6 @@ namespace SchoolMaris.Migrations
                         .HasForeignKey("TeacherID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("SchoolMaris.Model.QuizQuestion", b =>
-                {
-                    b.HasOne("SchoolMaris.Model.AnswerKey", "AnswerKey")
-                        .WithMany("QuizQuestion")
-                        .HasForeignKey("AnswerKeyAKeyID")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

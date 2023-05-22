@@ -45,6 +45,34 @@
     <Compile Remove="Migrations\20230316043139_AddedSubjectToEnrolment.Designer.cs" />
     <Compile Remove="Migrations\20230316045019_addedSubjectToEnrolment.cs" />
     <Compile Remove="Migrations\20230316045019_addedSubjectToEnrolment.Designer.cs" />
+    <Compile Remove="Migrations\20230404020805_AddedQuizToDB.cs" />
+    <Compile Remove="Migrations\20230404020805_AddedQuizToDB.Designer.cs" />
+    <Compile Remove="Migrations\20230413232309_addedQUIZ.cs" />
+    <Compile Remove="Migrations\20230413232309_addedQUIZ.Designer.cs" />
+    <Compile Remove="Migrations\20230414001830_AddedQUIZtodb.cs" />
+    <Compile Remove="Migrations\20230414001830_AddedQUIZtodb.Designer.cs" />
+    <Compile Remove="Migrations\20230426031226_AddedQuizQuestiontoDB.cs" />
+    <Compile Remove="Migrations\20230426031226_AddedQuizQuestiontoDB.Designer.cs" />
+    <Compile Remove="Migrations\20230426035423_addedQuizQuestiontoDB.cs" />
+    <Compile Remove="Migrations\20230426035423_addedQuizQuestiontoDB.Designer.cs" />
+    <Compile Remove="Migrations\20230503033115_AddedQuizQuestionTODB.cs" />
+    <Compile Remove="Migrations\20230503033115_AddedQuizQuestionTODB.Designer.cs" />
+    <Compile Remove="Migrations\20230503034951_AddedQuizQuestiontoDB.cs" />
+    <Compile Remove="Migrations\20230503034951_AddedQuizQuestiontoDB.Designer.cs" />
+    <Compile Remove="Migrations\20230503035402_AddedQuizQuestiontoDB.cs" />
+    <Compile Remove="Migrations\20230503035402_AddedQuizQuestiontoDB.Designer.cs" />
+    <Compile Remove="Migrations\20230503042547_AddedQuizQuestiontoDB.cs" />
+    <Compile Remove="Migrations\20230503042547_AddedQuizQuestiontoDB.Designer.cs" />
+    <Compile Remove="Migrations\20230503042732_AddedQuizQuestionToDB.cs" />
+    <Compile Remove="Migrations\20230503042732_AddedQuizQuestionToDB.Designer.cs" />
+    <Compile Remove="Migrations\20230503081405_AddedQuizQuestiontoDB.cs" />
+    <Compile Remove="Migrations\20230503081405_AddedQuizQuestiontoDB.Designer.cs" />
+    <Compile Remove="Migrations\20230518015206_AddedOptiontoQuestion.cs" />
+    <Compile Remove="Migrations\20230518015206_AddedOptiontoQuestion.Designer.cs" />
+    <Compile Remove="Migrations\20230518023115_addedOptiontoQuestion.cs" />
+    <Compile Remove="Migrations\20230518023115_addedOptiontoQuestion.Designer.cs" />
+    <Compile Remove="Migrations\20230518070734_addedoptiontoquestion.cs" />
+    <Compile Remove="Migrations\20230518070734_addedoptiontoquestion.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

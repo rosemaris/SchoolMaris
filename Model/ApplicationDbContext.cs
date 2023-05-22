@@ -20,6 +20,11 @@ namespace SchoolMaris.Model
         public DbSet<PupilsProfile> PupilsProfile { get; set; }
         public DbSet<EnrolmentProfile> EnrolmentProfile { get; set; }
         public DbSet<Credentials> Credentials { get; set; }
+        public DbSet<Option> Option { get; set; }
+        public DbSet<AnswerKey> AnswerKey { get; set; }
+        public DbSet<QuizQuestion> QuizQuestion { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
